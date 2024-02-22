@@ -1,0 +1,22 @@
+version: '3'
+services:
+  es:
+    build: .
+    container_name: elasticsearch
+    environment:
+      - node.name=elasticsearch
+      - discovery.type=single-node
+      - cluster.name=es-docker-cluster
+      - "ES_JAVA_OPTS=-Xms4096m -Xmx4096m"
+      - xpack.security.enabled=false
+      - http.port=9200
+    ports:
+      - 9200:9200
+    ulimits:
+      memlock:
+        soft: -1
+        hard: -1
+    volumes:
+      - es-data:/tmp/my-es/data
+volumes:
+  es-data: null
