@@ -224,7 +224,11 @@ curl -X POST "http://localhost:9200/my_synonym_index/_search?pretty" -H 'Content
 
 # App
 ## Crawler
-TODO
+```
+go run main.go --crawl
+```
 
 ## Searcher
-TODO
+```
+go run main.go --search --q=japanese_comment:猫
+```
